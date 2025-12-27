@@ -1,21 +1,41 @@
-/* Desktop: 4 per row */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  padding: 8px;
+/* Basic page styling */
+body {
+  margin: 0;
+  background: #000;       /* black background */
+  color: #fff;
+  font-family: sans-serif;
 }
 
-/* Tablet / mobile: 2 per row */
+header {
+  text-align: center;
+  padding: 20px;
+  letter-spacing: 2px;
+}
+
+/* Gallery layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 images per row by default */
+  gap: 8px;                               /* space between images */
+  padding: 8px;                            /* space around gallery */
+}
+
+/* Make images fill their grid cell and keep aspect ratio */
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive: adjust for smaller screens */
 @media (max-width: 768px) {
   .gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 images per row on mobile/tablet */
   }
 }
 
-/* Very small phones: still 2 per row (optional) */
 @media (max-width: 480px) {
   .gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;           /* 1 image per row on very small screens */
   }
 }
